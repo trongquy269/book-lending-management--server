@@ -1,28 +1,8 @@
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
-// Connection URL
-const url = 'mongodb://localhost:27017';
-// const client = new MongoClient(url);
-
-// Database Name
-const dbName = 'book-lending-management';
-
-// function collection(collectionName) {
-// 	// Use connect method to connect to the server
-// 	return client
-// 		.connect()
-// 		.then(() => {
-// 			console.log('Connected successfully to server');
-
-// 			const db = client.db(dbName);
-// 			return db.collection(collectionName);
-// 		})
-// 		.catch((err) => {
-// 			console.error('Connection failed!');
-// 			throw err;
-// 		});
-// }
-
+const url = process.env.MONGODB_URL;
+const dbName = process.env.MONGODB_NAME;
 const client = new MongoClient(url);
 let db;
 
